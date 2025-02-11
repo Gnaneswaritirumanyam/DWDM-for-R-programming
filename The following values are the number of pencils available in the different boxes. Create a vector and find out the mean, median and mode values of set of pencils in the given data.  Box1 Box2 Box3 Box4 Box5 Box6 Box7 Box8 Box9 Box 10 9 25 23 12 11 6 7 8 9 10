@@ -1,0 +1,24 @@
+# Create a vector for the number of pencils in each box
+pencils <- c(9, 25, 23, 12, 11, 6, 7, 8, 9, 10)
+
+# Compute the Mean
+mean_value <- mean(pencils)
+
+# Compute the Median
+median_value <- median(pencils)
+
+# Function to calculate Mode
+get_mode <- function(v) {
+  uniq_vals <- unique(v)                    # Get unique values
+  freq <- tabulate(match(v, uniq_vals))      # Count occurrences
+  mode_vals <- uniq_vals[freq == max(freq)]  # Select most frequent value(s)
+  return(mode_vals)
+}
+
+# Compute the Mode
+mode_value <- get_mode(pencils)
+
+# Display results
+cat("Mean:", mean_value, "\n")
+cat("Median:", median_value, "\n")
+cat("Mode:", mode_value, "\n")
