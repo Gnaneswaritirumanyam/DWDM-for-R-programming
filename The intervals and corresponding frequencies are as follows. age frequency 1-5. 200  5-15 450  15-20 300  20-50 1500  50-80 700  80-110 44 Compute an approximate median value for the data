@@ -1,0 +1,23 @@
+# Given data
+age_intervals <- list(c(1,5), c(5,15), c(15,20), c(20,50), c(50,80), c(80,110))
+frequencies <- c(200, 450, 300, 1500, 700, 44)
+
+# Compute cumulative frequencies
+cum_freq <- cumsum(frequencies)
+N <- sum(frequencies)  # Total frequency
+N_half <- N / 2  # Median position
+
+# Find the median class (first class where cumulative frequency >= N/2)
+median_class_index <- which(cum_freq >= N_half)[1]
+
+# Extract median class values
+L <- age_intervals[[median_class_index]][1]  # Lower boundary
+CF <- ifelse(median_class_index == 1, 0, cum_freq[median_class_index - 1])  
+
+# Cumulative freq before median class
+f <- frequencies[median_class_index]  # Frequency of median class
+h <- diff(age_intervals[[median_class_index]])  # Class width
+
+# Compute median using the formula
+median_value <- L + ((N_half - CF) / f) * h
+print(paste("Approximate Median Age:", median_value))
