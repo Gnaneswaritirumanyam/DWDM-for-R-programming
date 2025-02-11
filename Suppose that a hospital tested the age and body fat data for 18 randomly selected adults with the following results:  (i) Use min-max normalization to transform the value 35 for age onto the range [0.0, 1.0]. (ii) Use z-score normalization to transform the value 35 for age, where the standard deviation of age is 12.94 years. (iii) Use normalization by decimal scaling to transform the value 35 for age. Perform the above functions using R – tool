@@ -1,0 +1,26 @@
+# Given data
+age_value <- 35
+std_dev <- 12.94  # Given standard deviation
+
+# Sample age data (modify based on real data)
+ages <- c(23, 25, 28, 30, 32, 34, 35, 36, 37, 40, 42, 45, 50, 55, 60, 62, 64, 68)
+
+# Min and Max values for Min-Max Normalization
+min_age <- min(ages)
+max_age <- max(ages)
+
+# (i) Min-Max Normalization
+min_max_norm <- (age_value - min_age) / (max_age - min_age)
+
+# (ii) Z-Score Normalization
+mean_age <- mean(ages)  # Compute mean from dataset
+z_score_norm <- (age_value - mean_age) / std_dev
+
+# (iii) Decimal Scaling Normalization
+j <- ceiling(log10(max(abs(ages))))  # Find scaling factor
+decimal_scaling_norm <- age_value / (10^j)
+
+# Display results
+cat("Min-Max Normalized Value:", min_max_norm, "\n")
+cat("Z-Score Normalized Value:", z_score_norm, "\n")
+cat("Decimal Scaling Normalized Value:", decimal_scaling_norm, "\n")
