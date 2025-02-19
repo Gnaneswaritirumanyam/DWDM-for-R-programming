@@ -21,3 +21,10 @@ h <- diff(age_intervals[[median_class_index]])  # Class width
 # Compute median using the formula
 median_value <- L + ((N_half - CF) / f) * h
 print(paste("Approximate Median Age:", median_value))
+
+
+
+
+
+
+
